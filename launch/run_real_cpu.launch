@@ -1,0 +1,20 @@
+<launch>
+    <param name="checkpoint" type="string" value="$(find squeezesegv2_ros)/data/SqueezeSegV2/model.ckpt-30700" />
+    <param name="sub_topic" type="string" value="/aiways/sensor/velodyne64/PointCloud2" />
+    <param name="pub_topic" type="string" value="/velodyne_points_squeeze" />
+    <param name="frame_id" type="string" value="velodyne64" />
+    <param name="x_channel" type="string" value="x" />
+    <param name="y_channel" type="string" value="y" />
+    <param name="z_channel" type="string" value="z" />
+    <param name="i_channel" type="string" value="intensity" />
+    <param name="t_channel" type="string" value="timestamp" />
+    <param name="gpu" type="string" value="0" />
+    <param name="device_id" type="int" value="-1" /> <!--(cpu:-1)(gpu:0)-->
+
+    <node pkg="squeezesegv2_ros" type="squeezesegv2_ros_node.py" name="squeezesegv2_ros_node" output="screen">
+    </node>
+
+    <!--    
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find squeezeseg_ros)/rviz/default.rviz" />
+    -->
+</launch>
